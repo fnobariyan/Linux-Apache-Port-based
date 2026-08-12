@@ -1,0 +1,12 @@
+#Creat configuration file
+vi /etc/httpd/conf.d/www-mcloud.conf
+<VirtualHost 192.168.56.106:8081>
+        ServerName www.mcloud.local
+        ServerAdmin admin@mcloud.local
+        DocumentRoot /var/www/html/www-mcloud/mcloud
+        ErrorLog /var/log/httpd/www-mcloud-error.log
+        CustomLog /var/log/httpd/www-mcloud-access-log combined
+</VirtualHost>
+
+
+Listen 8081
