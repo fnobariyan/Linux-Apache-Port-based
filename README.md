@@ -25,15 +25,17 @@ The server IP address is:
              |                       |
        dl.mcloud.local        www.mcloud.local
              |                       |
-       DL Website             Main Website
+      DL Website             Main Website
 
-Requirements
+
+## Requirements
 Linux Server
 Apache HTTP Server
 Root or sudo access
 Two websites/source codes
 Network connectivity to the server
-📂 Project Structure
+
+## 📂 Project Structure
 
 Apache configuration files are located in:
 
@@ -70,42 +72,7 @@ www.mcloud.local
 
 The main website is configured on port 8081.
 
-Configuration file:
-
-/etc/httpd/conf.d/www-mcloud.conf
-<VirtualHost 192.168.56.106:8081>
-    ServerName www.mcloud.local
-    ServerAdmin admin@mcloud.local
-
-    DocumentRoot /var/www/html/www-mcloud/mcloud
-
-    ErrorLog /var/log/httpd/www-mcloud-error.log
-    CustomLog /var/log/httpd/www-mcloud-access-log combined
-</VirtualHost>
-
-Listen 8081
-dl.mcloud.local
-
-The download website is configured on port 80.
-
-Configuration file:
-
-/etc/httpd/conf.d/dl-mcloud.conf
-
-Example:
-
-<VirtualHost 192.168.56.106:80>
-    ServerName dl.mcloud.local
-    ServerAdmin admin@mcloud.local
-
-    DocumentRoot /var/www/html/dl-mcloud/dl-mcloud-local
-
-    ErrorLog /var/log/httpd/dl-mcloud-error.log
-    CustomLog /var/log/httpd/dl-mcloud-access-log combined
-</VirtualHost>
-
-Listen 80
-🌐 Testing
+##🌐 Testing
 
 The websites can be accessed using:
 
@@ -117,7 +84,7 @@ http://192.168.56.106:8081/
 
 The second website can be tested directly through port 8081.
 
-🔍 Useful Apache Commands
+##🔍 Useful Apache Commands
 
 Check Apache configuration syntax:
 
@@ -178,7 +145,7 @@ chmod 755 /var/www/html/www-mcloud/mcloud/images
 
 After correcting the permissions, Apache was able to access the website files.
 
-🔎 Checking Directory Permissions
+## 🔎 Checking Directory Permissions
 
 The namei command is useful for checking permissions of every component of a path:
 
@@ -196,7 +163,7 @@ drwxr-xr-x root root mcloud
 
 This makes it easy to identify which directory is preventing Apache from accessing the file.
 
-🔐 Apache User and Permissions
+## 🔐 Apache User and Permissions
 
 Apache runs using the apache user on Rocky Linux.
 
@@ -242,7 +209,8 @@ Using curl for HTTP testing
 Using ss to check listening ports
 Using httpd -S to inspect VirtualHosts
 Using namei -l to troubleshoot filesystem permissions
-🧪 Troubleshooting Workflow
+
+## 🧪 Troubleshooting Workflow
 
 When Apache returns 403 Forbidden, the following commands are useful:
 
@@ -261,7 +229,8 @@ Listening port
 Filesystem permissions
 Apache authorization
 DocumentRoot
-📌 Important Note
+
+## 📌 Important Note
 
 This project uses Port-Based Virtual Hosting.
 
